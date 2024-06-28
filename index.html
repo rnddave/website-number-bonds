@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Bonds Practice</title>
+    <link id="theme" rel="stylesheet" href="styles1.css">
+<script>
+    const themes = [
+        'styles1.css', 'styles2.css', 'styles3.css', 
+        'styles4.css', 'styles5.css', 'styles6.css'
+    ];
+    const theme = themes[Math.floor(Math.random() * themes.length)];
+    document.getElementById('theme').href = theme;
+</script>
+</head>
+<body>
+    <div class="container">
+        <h1>Number Bonds Practice</h1>
+        <div class="input-section">
+            <label for="time">Time (seconds):</label>
+            <input type="number" id="time" min="10" max="600">
+            <label for="questions">Number of Questions:</label>
+            <input type="number" id="questions" min="1" max="50">
+            <label for="level">Number Bond Level:</label>
+            <input type="number" id="level" min="1">
+            <button id="start-btn">Start</button>
+        </div>
+        <div class="test-section" id="test-section">
+            <div class="timer" id="timer">Time: 0s</div>
+            <div class="question" id="question"></div>
+            <input type="number" id="answer">
+            <button id="next-btn">Next</button>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
