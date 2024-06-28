@@ -8,49 +8,51 @@
     <link id="theme" rel="stylesheet" href="styles2.css"> <!-- This will be dynamically changed -->
 </head>
 <body>
-    <div class="container">
-        <h1>Number Bonds Practice</h1>
-        <div class="input-section">
-            <label for="time">Time (seconds):</label>
-            <input type="number" id="time" min="10" max="600">
-            <label for="questions">Number of Questions:</label>
-            <input type="number" id="questions" min="1" max="50">
-            <label for="level">Number Bond Level:</label>
-            <input type="number" id="level" min="1">
-            <button id="start-btn">Start</button>
-        </div>
-        <div class="test-section" id="test-section">
-            <div class="timer">
-                <div class="circle">
-                    <div class="inner"></div>
-                    <div class="outer"></div>
-                    <div class="numb" id="numb">0</div>
-                    <div class="circle-left">
-                        <div class="progress" id="left-progress"></div>
-                    </div>
-                    <div class="circle-right">
-                        <div class="progress" id="right-progress"></div>
+    <div class="content">
+        <div class="container">
+            <h1>Number Bonds Practice</h1>
+            <div class="input-section">
+                <label for="time">Time (seconds):</label>
+                <input type="number" id="time" min="10" max="600">
+                <label for="questions">Number of Questions:</label>
+                <input type="number" id="questions" min="1" max="50">
+                <label for="level">Number Bond Level:</label>
+                <input type="number" id="level" min="1">
+                <button id="start-btn">Start</button>
+            </div>
+            <div class="test-section" id="test-section">
+                <div class="timer">
+                    <div class="circle">
+                        <div class="inner"></div>
+                        <div class="outer"></div>
+                        <div class="numb" id="numb">0</div>
+                        <div class="circle-left">
+                            <div class="progress" id="left-progress"></div>
+                        </div>
+                        <div class="circle-right">
+                            <div class="progress" id="right-progress"></div>
+                        </div>
                     </div>
                 </div>
+                <div class="question" id="question"></div>
+                <input type="number" id="answer">
+                <button id="next-btn">Next</button>
             </div>
-            <div class="question" id="question"></div>
-            <input type="number" id="answer">
-            <button id="next-btn">Next</button>
-        </div>
-        <div class="result-section" id="result-section">
-            <h2>Results</h2>
-            <table id="result-table">
-                <thead>
-                    <tr>
-                        <th>Question</th>
-                        <th>Your Answer</th>
-                        <th>Result</th>
-                    </tr>
-                </thead>
-                <tbody id="result-body"></tbody>
-            </table>
-            <div id="score"></div>
-            <button id="restart-btn">Restart</button>
+            <div class="result-section" id="result-section">
+                <h2>Results</h2>
+                <table id="result-table">
+                    <thead>
+                        <tr>
+                            <th>Question</th>
+                            <th>Your Answer</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody id="result-body"></tbody>
+                </table>
+                <div id="score"></div>
+                <button id="restart-btn">Restart</button>
+            </div>
         </div>
     </div>
     <footer>
