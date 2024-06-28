@@ -9,6 +9,7 @@ let currentQuestion = 0;
 let timeRemaining;
 let userAnswers = [];
 let totalTime;
+let invalidAttempts = 0;
 
 function startTest() {
     const time = parseInt(document.getElementById('time').value);
@@ -25,6 +26,7 @@ function startTest() {
     questions = generateQuestions(numberOfQuestions, level);
     currentQuestion = 0;
     userAnswers = [];
+    invalidAttempts = 0;
 
     document.querySelector('.input-section').style.display = 'none';
     document.querySelector('.test-section').style.display = 'block';
@@ -112,14 +114,35 @@ function showQuestion() {
 }
 
 function nextQuestion() {
-    const answer = parseInt(document.getElementById('answer').value);
-    userAnswers.push({ 
-        question: questions[currentQuestion].question, 
-        correctAnswer: questions[currentQuestion].answer, 
-        userAnswer: isNaN(answer) ? 'oops, that\'s wrong' : answer 
-    });
-    currentQuestion++;
-    showQuestion();
+    const answer = document.getElementById('answer').value;
+
+    if (isNaN(answer) || answer.trim() === '') {
+        invalidAttempts++;
+        if (invalidAttempts > 2) {
+            alert('You have entered an invalid answer too many times. Scoring 0 for this question.');
+            userAnswers.push({ 
+                question: questions[currentQuestion].question, 
+                correctAnswer: questions[currentQuestion].answer, 
+                userAnswer: '0' 
+            });
+            invalidAttempts = 0;
+            currentQuestion++;
+            showQuestion();
+        } else {
+            alert('Please enter a valid number.');
+            document.getElementById('answer').value = '';
+            document.getElementById('answer').focus();
+        }
+    } else {
+        userAnswers.push({ 
+            question: questions[currentQuestion].question, 
+            correctAnswer: questions[currentQuestion].answer, 
+            userAnswer: parseInt(answer) 
+        });
+        invalidAttempts = 0;
+        currentQuestion++;
+        showQuestion();
+    }
 }
 
 function endTest() {
