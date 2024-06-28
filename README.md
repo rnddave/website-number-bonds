@@ -73,13 +73,16 @@ number-bonds-practice/
 ├── styles1.css
 ├── styles2.css
 ├── styles3.css
+├── styles4.css
+├── styles5.css
+├── styles6.css
 └── README.md
 ```
 
 - `index.html`: The main HTML file that contains the structure of the website.
 - `styles.css`: The main CSS file for default styling.
 - `scripts.js`: The JavaScript file for adding interactivity and functionality.
-- `styles1.css`, `styles2.css`, `styles3.css`: Additional CSS files for different color schemes.
+- `styles1.css`, `styles2.css`, `styles3.css`, `styles4.css`, `styles5.css`, `styles6.css`: Additional CSS files for different color schemes.
 - `README.md`: This README file.
 
 ## Contributing
