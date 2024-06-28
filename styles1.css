@@ -2,6 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -59,16 +60,16 @@ h1 {
 
 .timer {
     position: relative;
-    width: 200px;  /* Increased size */
-    height: 200px; /* Increased size */
+    width: 200px;  
+    height: 200px; 
     margin: 20px auto;
 }
 
 .circle {
     position: relative;
-    width: 200px;  /* Increased size */
-    height: 200px; /* Increased size */
-    border: 5px solid #333; /* Added border */
+    width: 200px;  
+    height: 200px; 
+    border: 5px solid #333; 
     border-radius: 50%;
 }
 
@@ -96,21 +97,21 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3em; /* Increased font size */
-    font-weight: bold; /* Added bold font */
+    font-size: 3em; 
+    font-weight: bold; 
     z-index: 3;
-    color: #333; /* Ensured text color is visible */
+    color: #333; 
 }
 
 .numb.pulse {
-    color: #8b0000; /* Very dark red color */
+    color: #8b0000; 
 }
 
 .circle-left, .circle-right {
     position: absolute;
     width: 100%;
     height: 100%;
-    clip: rect(0, 100px, 200px, 0); /* Adjusted for increased size */
+    clip: rect(0, 100px, 200px, 0); 
 }
 
 .circle-left {
@@ -126,7 +127,7 @@ h1 {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    clip: rect(0, 100px, 200px, 0); /* Adjusted for increased size */
+    clip: rect(0, 100px, 200px, 0); 
     background-color: #4CAF50;
 }
 
@@ -189,7 +190,7 @@ h1 {
 }
 
 #result-table th {
-    background-color: #796d6d; /* Changed background color */
+    background-color: #796d6d; 
 }
 
 #score {
@@ -209,4 +210,31 @@ h1 {
 
 #restart-btn:hover {
     background-color: #d32f2f;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #f0f8ff;
+    padding: 10px;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    margin-right: 10px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #333;
+    cursor: pointer; 
+}
+
+footer p:hover {
+    text-decoration: underline; 
 }

@@ -191,3 +191,7 @@ function restartTest() {
     document.querySelector('.test-section').style.display = 'none';
     document.getElementById('result-section').style.display = 'none';
 }
+
+document.getElementById('contribution-text').addEventListener('click', function() {
+    alert('Contributions are welcome! Please fork the repository and submit a pull request with your changes. Ensure your code follows the existing style and includes appropriate documentation.');
+});

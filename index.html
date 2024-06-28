@@ -53,15 +53,24 @@
             <button id="restart-btn">Restart</button>
         </div>
     </div>
+    <footer>
+        <a href="https://github.com/rnddave/website-number-bonds" target="_blank">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="20" height="20">
+        </a>
+        <p id="contribution-text">Do you want to help make this better?</p>
+    </footer>
     <script src="scripts.js"></script>
     <script>
         const themes = [
             'styles2.css', 'styles3.css', 'styles4.css', 
-            'styles5.css', 'styles6.css', 'styles7.css',
-            'styles8.css', 'styles9.css', 'styles10.css'
+            'styles5.css', 'styles6.css'
         ];
         const theme = themes[Math.floor(Math.random() * themes.length)];
         document.getElementById('theme').href = theme;
+
+        document.getElementById('contribution-text').addEventListener('click', function() {
+            alert('Contributions are welcome! Please fork the repository and submit a pull request with your changes. Ensure your code follows the existing style and includes appropriate documentation.');
+        });
     </script>
 </body>
 </html>
