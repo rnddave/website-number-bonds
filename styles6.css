@@ -1,125 +1,29 @@
-
+/* styles6.css */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f8ff;
+    background-color: #98fb98;
 }
 
 .container {
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background: #fff;
-    max-width: 400px;
-    width: 100%;
-}
-
-h1 {
-    color: #333;
-}
-
-.input-section {
-    margin-bottom: 20px;
-}
-
-.input-section label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-.input-section input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-#start-btn {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#start-btn:hover {
-    background-color: #45a049;
-}
-
-.test-section {
-    display: none;
-}
-
-.timer {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-}
-
-.question {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-}
-
-#answer {
-    width: 80%;
-    padding: 10px;
-    font-size: 1.2em;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-#next-btn {
-    padding: 10px 20px;
-    background-color: #2196F3;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-#next-btn:hover {
-    background-color: #0b7dda;
-}
-
-.pulse {
-    animation: pulse 1s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-
-body {
-    background-color: #fff0f5;
-}
-
-.container {
-    background: #ff69b4;
+    background: #32cd32;
     color: #fff;
 }
 
 #start-btn {
-    background-color: #ff1493;
+    background-color: #7fff00;
 }
 
 #start-btn:hover {
-    background-color: #ff69b4;
+    background-color: #7cfc00;
 }
 
 #next-btn {
-    background-color: #db7093;
+    background-color: #adff2f;
 }
 
 #next-btn:hover {
-    background-color: #c71585;
+    background-color: #00ff7f;
+}
+
+.progress {
+    background-color: #32cd32;
 }

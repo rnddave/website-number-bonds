@@ -1,12 +1,14 @@
 // scripts.js
 document.getElementById('start-btn').addEventListener('click', startTest);
 document.getElementById('next-btn').addEventListener('click', nextQuestion);
+document.getElementById('restart-btn').addEventListener('click', restartTest);
 
 let timer;
 let questions;
 let currentQuestion = 0;
 let timeRemaining;
 let userAnswers = [];
+let totalTime;
 
 function startTest() {
     const time = parseInt(document.getElementById('time').value);
@@ -19,6 +21,7 @@ function startTest() {
     }
 
     timeRemaining = time;
+    totalTime = time;
     questions = generateQuestions(numberOfQuestions, level);
     currentQuestion = 0;
     userAnswers = [];
@@ -74,12 +77,27 @@ function startTimer() {
 }
 
 function updateTimer() {
-    const timerElement = document.getElementById('timer');
-    timerElement.textContent = `Time: ${timeRemaining}s`;
-    if (timeRemaining <= 10) {
-        timerElement.classList.add('pulse');
+    const numb = document.getElementById('numb');
+    numb.textContent = timeRemaining;
+
+    const totalTimePassed = totalTime - timeRemaining;
+    const degrees = (totalTimePassed / totalTime) * 360;
+
+    const leftProgress = document.getElementById('left-progress');
+    const rightProgress = document.getElementById('right-progress');
+
+    if (degrees <= 180) {
+        rightProgress.style.transform = `rotate(${degrees}deg)`;
+        leftProgress.style.transform = 'rotate(0deg)';
     } else {
-        timerElement.classList.remove('pulse');
+        rightProgress.style.transform = 'rotate(180deg)';
+        leftProgress.style.transform = `rotate(${degrees - 180}deg)`;
+    }
+
+    if (timeRemaining <= 10) {
+        numb.classList.add('pulse');
+    } else {
+        numb.classList.remove('pulse');
     }
 }
 
@@ -98,7 +116,7 @@ function nextQuestion() {
     userAnswers.push({ 
         question: questions[currentQuestion].question, 
         correctAnswer: questions[currentQuestion].answer, 
-        userAnswer: answer 
+        userAnswer: isNaN(answer) ? 'oops, that\'s wrong' : answer 
     });
     currentQuestion++;
     showQuestion();
@@ -112,25 +130,40 @@ function endTest() {
 }
 
 function displayResults() {
-    const resultList = document.getElementById('result-list');
-    resultList.innerHTML = '';
+    const resultBody = document.getElementById('result-body');
+    resultBody.innerHTML = '';
 
     let correctCount = 0;
     userAnswers.forEach(answer => {
-        const li = document.createElement('li');
-        li.textContent = `${answer.question} ${answer.userAnswer}`;
+        const tr = document.createElement('tr');
+        const questionTd = document.createElement('td');
+        const answerTd = document.createElement('td');
+        const resultTd = document.createElement('td');
+        
+        questionTd.textContent = answer.question;
+        answerTd.textContent = answer.userAnswer;
         if (answer.userAnswer === answer.correctAnswer) {
-            li.innerHTML += ' ✔️';
+            resultTd.innerHTML = '✔️';
             correctCount++;
         } else {
-            li.innerHTML += ' ❌';
+            resultTd.innerHTML = '❌';
         }
-        resultList.appendChild(li);
+
+        tr.appendChild(questionTd);
+        tr.appendChild(answerTd);
+        tr.appendChild(resultTd);
+        resultBody.appendChild(tr);
     });
 
     const scoreElement = document.getElementById('score');
     const totalQuestions = userAnswers.length;
-    const percentage = (correctCount / totalQuestions) * 100;
+    const percentage = isNaN(correctCount / totalQuestions) ? 0 : (correctCount / totalQuestions) * 100;
     let message = percentage >= 90 ? '👍' : 'Keep trying!';
     scoreElement.textContent = `Score: ${correctCount} out of ${totalQuestions} (${percentage.toFixed(2)}%) ${message}`;
+}
+
+function restartTest() {
+    document.querySelector('.input-section').style.display = 'block';
+    document.querySelector('.test-section').style.display = 'none';
+    document.getElementById('result-section').style.display = 'none';
 }

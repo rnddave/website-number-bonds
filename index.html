@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Number Bonds Practice</title>
-    <link id="theme" rel="stylesheet" href="styles1.css">
+    <link id="base-theme" rel="stylesheet" href="styles1.css">
+    <link id="theme" rel="stylesheet" href="styles2.css"> <!-- This will be dynamically changed -->
 </head>
 <body>
     <div class="container">
@@ -19,24 +20,45 @@
             <button id="start-btn">Start</button>
         </div>
         <div class="test-section" id="test-section">
-            <div class="timer" id="timer">Time: 0s</div>
+            <div class="timer">
+                <div class="circle">
+                    <div class="inner"></div>
+                    <div class="outer"></div>
+                    <div class="numb" id="numb">0</div>
+                    <div class="circle-left">
+                        <div class="progress" id="left-progress"></div>
+                    </div>
+                    <div class="circle-right">
+                        <div class="progress" id="right-progress"></div>
+                    </div>
+                </div>
+            </div>
             <div class="question" id="question"></div>
             <input type="number" id="answer">
             <button id="next-btn">Next</button>
         </div>
         <div class="result-section" id="result-section">
             <h2>Results</h2>
-            <ul id="result-list"></ul>
+            <table id="result-table">
+                <thead>
+                    <tr>
+                        <th>Question</th>
+                        <th>Your Answer</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody id="result-body"></tbody>
+            </table>
             <div id="score"></div>
+            <button id="restart-btn">Restart</button>
         </div>
     </div>
     <script src="scripts.js"></script>
     <script>
         const themes = [
-            'styles1.css', 'styles2.css', 'styles3.css', 
-            'styles4.css', 'styles5.css', 'styles6.css',
-            'styles7.css', 'styles8.css', 'styles9.css',
-            'styles10.css'
+            'styles2.css', 'styles3.css', 'styles4.css', 
+            'styles5.css', 'styles6.css', 'styles7.css',
+            'styles8.css', 'styles9.css', 'styles10.css'
         ];
         const theme = themes[Math.floor(Math.random() * themes.length)];
         document.getElementById('theme').href = theme;
