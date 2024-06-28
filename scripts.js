@@ -10,10 +10,11 @@ let timeRemaining;
 let userAnswers = [];
 let totalTime;
 let invalidAttempts = 0;
+let numberOfQuestions = 0;
 
 function startTest() {
     const time = parseInt(document.getElementById('time').value);
-    const numberOfQuestions = parseInt(document.getElementById('questions').value);
+    numberOfQuestions = parseInt(document.getElementById('questions').value);
     const level = parseInt(document.getElementById('level').value);
 
     if (isNaN(time) || isNaN(numberOfQuestions) || isNaN(level)) {
@@ -179,7 +180,7 @@ function displayResults() {
     });
 
     const scoreElement = document.getElementById('score');
-    const totalQuestions = userAnswers.length;
+    const totalQuestions = numberOfQuestions;
     const percentage = isNaN(correctCount / totalQuestions) ? 0 : (correctCount / totalQuestions) * 100;
     let message = percentage >= 90 ? '👍' : 'Keep trying!';
     scoreElement.textContent = `Score: ${correctCount} out of ${totalQuestions} (${percentage.toFixed(2)}%) ${message}`;
