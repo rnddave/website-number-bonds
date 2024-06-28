@@ -1,6 +1,6 @@
 /* styles6.css */
 body {
-    background-color: #98fb98;
+    background-color: #bef8be;
 }
 
 .container {
@@ -9,19 +9,19 @@ body {
 }
 
 #start-btn {
-    background-color: #7fff00;
+    background-color: #498d05;
 }
 
 #start-btn:hover {
-    background-color: #7cfc00;
+    background-color: #79a150;
 }
 
 #next-btn {
-    background-color: #adff2f;
+    background-color: #498d05;
 }
 
 #next-btn:hover {
-    background-color: #00ff7f;
+    background-color: #79a150;
 }
 
 .progress {

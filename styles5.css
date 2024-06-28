@@ -9,19 +9,19 @@ body {
 }
 
 #start-btn {
-    background-color: #8a2be2;
+    background-color: #6315ac96;
 }
 
 #start-btn:hover {
-    background-color: #7b68ee;
+    background-color: #892be296;
 }
 
 #next-btn {
-    background-color: #ba55d3;
+    background-color: #6315ac96;
 }
 
 #next-btn:hover {
-    background-color: #9932cc;
+    background-color: #892be296;
 }
 
 .progress {

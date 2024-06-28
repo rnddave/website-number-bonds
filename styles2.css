@@ -9,11 +9,11 @@ body {
 }
 
 #start-btn {
-    background-color: #ffa07a;
+    background-color: #c75a2f;
 }
 
 #start-btn:hover {
-    background-color: #ff7f50;
+    background-color: #eb5924;
 }
 
 #next-btn {
@@ -21,7 +21,7 @@ body {
 }
 
 #next-btn:hover {
-    background-color: #ff6347;
+    background-color: #eb5924;
 }
 
 .progress {

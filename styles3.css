@@ -4,16 +4,16 @@ body {
 }
 
 .container {
-    background: #ff1493;
+    background: #ff1491be;
     color: #fff;
 }
 
 #start-btn {
-    background-color: #ff69b4;
+    background-color: #a11f60;
 }
 
 #start-btn:hover {
-    background-color: #ff1493;
+    background-color: #c21973;
 }
 
 #next-btn {
