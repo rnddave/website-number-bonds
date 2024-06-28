@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Number Bonds Practice</title>
     <link id="theme" rel="stylesheet" href="styles1.css">
-<script>
-    const themes = [
-        'styles1.css', 'styles2.css', 'styles3.css', 
-        'styles4.css', 'styles5.css', 'styles6.css'
-    ];
-    const theme = themes[Math.floor(Math.random() * themes.length)];
-    document.getElementById('theme').href = theme;
-</script>
 </head>
 <body>
     <div class="container">
@@ -32,7 +24,22 @@
             <input type="number" id="answer">
             <button id="next-btn">Next</button>
         </div>
+        <div class="result-section" id="result-section">
+            <h2>Results</h2>
+            <ul id="result-list"></ul>
+            <div id="score"></div>
+        </div>
     </div>
     <script src="scripts.js"></script>
+    <script>
+        const themes = [
+            'styles1.css', 'styles2.css', 'styles3.css', 
+            'styles4.css', 'styles5.css', 'styles6.css',
+            'styles7.css', 'styles8.css', 'styles9.css',
+            'styles10.css'
+        ];
+        const theme = themes[Math.floor(Math.random() * themes.length)];
+        document.getElementById('theme').href = theme;
+    </script>
 </body>
 </html>

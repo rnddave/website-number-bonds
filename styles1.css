@@ -93,6 +93,30 @@ h1 {
     animation: pulse 1s infinite;
 }
 
+
+.result-section {
+    display: none;
+    text-align: left;
+}
+
+.result-section h2 {
+    margin-top: 20px;
+}
+
+.result-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.result-section ul li {
+    margin: 5px 0;
+}
+
+#score {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.1); }

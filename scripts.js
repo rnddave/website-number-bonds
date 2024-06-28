@@ -6,6 +6,7 @@ let timer;
 let questions;
 let currentQuestion = 0;
 let timeRemaining;
+let userAnswers = [];
 
 function startTest() {
     const time = parseInt(document.getElementById('time').value);
@@ -20,9 +21,11 @@ function startTest() {
     timeRemaining = time;
     questions = generateQuestions(numberOfQuestions, level);
     currentQuestion = 0;
+    userAnswers = [];
 
     document.querySelector('.input-section').style.display = 'none';
     document.querySelector('.test-section').style.display = 'block';
+    document.getElementById('result-section').style.display = 'none';
 
     updateTimer();
     showQuestion();
@@ -92,17 +95,42 @@ function showQuestion() {
 
 function nextQuestion() {
     const answer = parseInt(document.getElementById('answer').value);
-    if (answer === questions[currentQuestion].answer) {
-        currentQuestion++;
-        showQuestion();
-    } else {
-        alert('Incorrect, try again!');
-    }
+    userAnswers.push({ 
+        question: questions[currentQuestion].question, 
+        correctAnswer: questions[currentQuestion].answer, 
+        userAnswer: answer 
+    });
+    currentQuestion++;
+    showQuestion();
 }
 
 function endTest() {
     clearInterval(timer);
-    alert('Test is over!');
-    document.querySelector('.input-section').style.display = 'block';
     document.querySelector('.test-section').style.display = 'none';
+    displayResults();
+    document.getElementById('result-section').style.display = 'block';
+}
+
+function displayResults() {
+    const resultList = document.getElementById('result-list');
+    resultList.innerHTML = '';
+
+    let correctCount = 0;
+    userAnswers.forEach(answer => {
+        const li = document.createElement('li');
+        li.textContent = `${answer.question} ${answer.userAnswer}`;
+        if (answer.userAnswer === answer.correctAnswer) {
+            li.innerHTML += ' ✔️';
+            correctCount++;
+        } else {
+            li.innerHTML += ' ❌';
+        }
+        resultList.appendChild(li);
+    });
+
+    const scoreElement = document.getElementById('score');
+    const totalQuestions = userAnswers.length;
+    const percentage = (correctCount / totalQuestions) * 100;
+    let message = percentage >= 90 ? '👍' : 'Keep trying!';
+    scoreElement.textContent = `Score: ${correctCount} out of ${totalQuestions} (${percentage.toFixed(2)}%) ${message}`;
 }
